@@ -6,7 +6,9 @@ const DataSchema=mongoose.Schema({
     mobile:{type:String},
     password:{type:String},
     photo:{type:String},
-    createdDate:{type:Date,default:Date.now()}
+    createdDate:{
+        type:Date,default:Date.now()
+    }
 },{versionKey:false});
 const UsersModel=mongoose.model('users',DataSchema);
 module.exports=UsersModel
