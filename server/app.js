@@ -4,6 +4,7 @@ const router =require('./src/routes/api');
 
 const app = new express();
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 //Security Middleware Lib Import
 const rateLimit = require('express-rate-limit');
@@ -38,7 +39,7 @@ app.use(limiter)
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 
-let URI = "mongodb+srv://taskms:lXEfk0vIauUaVihz@cluster0.rmec6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.rmec6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 let OPTION = { autoIndex: true };
 
